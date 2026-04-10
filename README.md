@@ -1,7 +1,7 @@
 # Software-Final-Project
 E-commerce About Shop IOT
 
-## ຂໍ້ກຳນົດການອອກແບບ Responsive (Tailwind CSS)
+## ການອອກແບບ Responsive (Tailwind CSS)
 ເພື່ອໃຫ້ເວັບໄຊສະແດງຜົນໄດ້ສວຍງາມ, ເຮົາຈະໃຊ້ Grid System ນີ້
 
 ## Responsive code : 
