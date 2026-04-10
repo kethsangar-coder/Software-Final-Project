@@ -6,17 +6,35 @@
     <title>Document</title>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body class="bg-gray-100">
+<body>
     <header class="bg-blue-900 text-white">
-  <div class="container mx-auto px-30 py-4  flex justify-between items-center">
+  <div class="container mx-auto px-4 py-4  flex justify-between items-center">
     <div class="text-2xl font-bold text-yellow-400">Superkart+</div>
     
-    <div class="hidden w-full max-w-2xl h-12 md:flex bg-white rounded-full overflow-hidden shadow-sm border border-gray-200">
-      <select class="hidden lg:block text-sm bg-gray-100 px-5 text-gray-700 outline-none ">
-        <option>All</option></select>
-      <input type="text" placeholder="Search the store..." class="w-full flex-1 px-4 text-black outline-none">
-      <button class="bg-yellow-400 px-6 text-black font-bold">🔍</button>
-    </div>
+
+
+
+
+<div class="flex w-full max-w-2xl bg-white rounded-full overflow-hidden h-12 shadow-sm border border-gray-200">
+  
+  <select class="hidden lg:block bg-gray-100 px-4 text-sm text-gray-600 outline-none border-r">
+    <option>All</option>
+  </select>
+
+  <input type="text" 
+         placeholder="Search the store..." 
+         class="flex-1 px-6 text-sm text-black outline-none">
+
+  <button class="bg-yellow-400 hover:bg-yellow-500 px-8 h-full flex items-center justify-center transition-colors">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+    </svg>
+  </button>
+</div>
+
+
+
+
 
     <div class="flex space-x-6 items-center text-sm">
       <div class="hidden lg:block text-right">
@@ -32,7 +50,7 @@
     </div>
   </div>
 
-  <nav class="border-t px-24 border-blue-800 hidden md:block">
+  <nav class="border-t border-blue-800 hidden md:block">
     <div class="container mx-auto px-4 py-2 flex space-x-6 text-sm">
       <a href="#" class="hover:text-yellow-400">Appliances</a>
       <a href="#" class="hover:text-yellow-400">Computers & Laptops</a>
@@ -43,8 +61,8 @@
   </nav>
 </header>
 
-<section class="bg-gradient-to-r w-full bg-white from-blue-500 to-purple-600 text-white px-30 py-16">
-  <div class="container mx-auto flex flex-col md:flex-row items-center">
+<section class="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-16">
+  <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
     <div class="md:w-1/2 space-y-4">
       <h1 class="text-5xl font-bold leading-tight">Huge Saving <span class="text-white">on</span><br>UHD Televisions</h1>
       <p class="text-lg">Sale up to 70% off on selected items*</p>
@@ -58,15 +76,15 @@
   </div>
 </section>
 
-<section class="bg-white px-30 py-4 border-b">
-  <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 text-center text-sm font-bold text-gray-700">
+<section class="bg-white py-4 border-b">
+  <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-4 text-center text-sm font-bold text-gray-700">
     <div class="flex items-center justify-center gap-2">🚚 Free Shipping & Returns</div>
     <div class="flex items-center justify-center gap-2 border-l border-r border-gray-200">🏅 Lowest Price Guarantee</div>
     <div class="flex items-center justify-center gap-2">🏆 Longest Warranties Offer</div>
   </div>
 </section>
 
-<section class="container mx-auto px-30 py-8">
+<section class="container mx-auto px-4 py-8">
   <div class="grid grid-cols-1 md:grid-cols-6 gap-4">
     
     <div class="md:col-span-2 bg-purple-500 rounded-xl p-6 h-48 text-white relative overflow-hidden flex flex-col justify-end shadow-md hover:shadow-lg transition">
@@ -96,7 +114,7 @@
   </div>
 </section>
 
-<section class="container mx-auto px-30 py-8">
+<section class="container mx-auto px-4 py-8">
   <div class="flex justify-between items-center mb-6">
     <h2 class="text-2xl font-bold text-red-600">Flash Deals</h2>
     <a href="#" class="text-gray-500 hover:text-blue-500">View All</a>
