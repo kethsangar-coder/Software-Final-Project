@@ -4,7 +4,9 @@ E-commerce About Shop IOT
 ## ຂໍ້ກຳນົດການອອກແບບ Responsive (Tailwind CSS)
 ເພື່ອໃຫ້ເວັບໄຊສະແດງຜົນໄດ້ສວຍງາມ, ເຮົາຈະໃຊ້ Grid System ນີ້
 
-## Responsive code : " grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4 "
+## Responsive code : ```html
+grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4
+
 * ມືຖື (Mobile): ສະແດງ 1-2 ອັນຕໍ່ແຖວ 
     * ຄຳສັ່ງ: `grid-cols-2`
 * ແທັບເລັດ (Tablet): ສະແດງ 3 ອັນ 
