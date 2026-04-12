@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Project </title>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body class="bg-gray-100">
@@ -47,20 +47,22 @@
   </nav>
 </header>
 
-<section class="bg-gradient-to-r w-full bg-white from-purple-600 to-blue-500 text-white px-30 py-8">
-  <div class="container mx-auto flex flex-col md:flex-row items-center">
-    <div class="md:w-1/2 space-y-4">
-      <h1 class="text-3xl text-cyan-300 font-bold leading-tight">Huge Saving <span class="text-white">on</span>
-        <br> <span class="text-white">UHD Televisions</span></h1>
-      <p class="text-lg ">Sale up to 70% off on selected items*</p>
-      <button class="mt-4 border-2 border-white px-8 py-2 rounded-full hover:bg-white hover:text-purple-600 transition font-bold">
-        Shop Now
-      </button>
-    </div>
-    <div class="md:w-1/2 mt-8 md:mt-0">
-      <div class="w-full h-64 bg-black/20 rounded-lg flex items-center justify-center border border-white/30">[ຮູບ TV ຈະຢູ່ບ່ອນນີ້]</div>
-    </div>
-  </div>
+<section class="w-full bg-white text-white px-30 py-8
+    bg-[url('/assets/bg-images/m02bg.jpg')] bg-cover bg-center opacity-100">
+      <div class="container mx-auto flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 space-y-4">
+          <h1 class="text-3xl text-cyan-300 font-bold leading-tight">Huge Saving <span class="text-white">on</span>
+            <br> <span class="text-white">UHD Televisions</span></h1>
+              <p class="text-lg ">Sale up to 20% off on selected items*</p>
+                <button class="mt-4 border-2 border-white px-8 py-2 rounded-full hover:bg-white hover:text-purple-600 transition font-bold">
+                Shop Now
+                </button>
+        </div>
+          <div class="md:w-1/2 mt-8 md:mt-0">
+            <img src="/assets/images/Neo-QLED-QN80F-4K-Samsung-Vision-A-Smart-TV.jpg"
+             class="w-full h-64 object-contain mx-auto bg-black/20 rounded-lg flex items-center justify-center border border-white/30">
+          </div>
+      </div>
 </section>
 
 <section class="bg-white px-30 py-4 border-b">
@@ -72,39 +74,80 @@
 </section>
 
 <section class="container mx-auto px-30 py-8">
-  <div class="grid grid-cols-1 md:grid-cols-6 gap-4">
+  <div class="grid grid-cols-1 md:grid-cols-6 gap-6">
     
-    <div class="relative md:col-span-2 bg-gradient-to-br from-purple-600 to-blue-500 rounded-xl p-6 h-48 text-white overflow-hidden shadow-lg transition-transform hover:scale-105">
-      <img src="/assets/images/Consoles-removebg.png" class="absolute inset-0 m-auto w-48 md:w-64 object-contain opacity-90" alt="Console">
-        <div class="relative z-10 h-full flex justify-between items-end">
-          <h3 class="font-bold text-lg border-b-2 border-yellow-400 pb-1">Consoles</h3>
-            <div class="text-right">
-              <p class="text-[10px] font-bold uppercase tracking-wider text-gray-200">Buy 2 Get 1</p>
-              <p class="text-4xl font-black text-cyan-400 italic leading-none">free</p>
+    <div class="relative md:col-span-2 rounded-xl p-6 h-48 text-white overflow-hidden shadow-lg transition-transform hover:scale-105 
+      bg-[url('/assets/bg-images/01bg.webp')] bg-cover bg-center">
+        <img src="/assets/images/Consoles-removebg.png" class="absolute inset-0 m-auto w-48 md:w-64 object-contain opacity-90" alt="Console">
+          <div class="relative z-10 h-full flex justify-between items-end">
+            <h3 class="font-bold text-lg border-b-2 border-yellow-400 pb-1">
+              Consoles</h3>
+              <div class="text-right">
+                <p class="text-[10px] font-bold uppercase tracking-wider text-gray-200">Buy 2 Get 1</p>
+                <p class="text-4xl font-black text-cyan-400 italic leading-none">Free</p>
+              </div>
+          </div>
+    </div>
+
+    <div class="relative md:col-span-2 rounded-xl p-6 h-48 text-white overflow-hidden shadow-lg transition-transform hover:scale-105 
+      bg-[url('/assets/bg-images/05bg.jpg')] bg-cover bg-center">
+        <img src="/assets/images/Consoles-removebg.png" class="absolute inset-0 m-auto w-48 md:w-64 object-contain opacity-90" alt="Console">
+          <div class="relative z-10 h-full flex justify-between items-end">
+            <h3 class="font-bold text-lg border-b-2 border-yellow-400 pb-1">Consoles</h3>
+              <div class="text-right">
+                <p class="text-[10px] font-bold uppercase tracking-wider text-gray-200">Buy 2 Get 1</p>
+                <p class="text-4xl font-black text-cyan-400 italic leading-none">Free</p>
+              </div>
+          </div>
+    </div>
+
+    <div class="relative md:col-span-2 rounded-xl p-6 h-48 text-white overflow-hidden shadow-lg transition-transform hover:scale-105
+      bg-[url('/assets/bg-images/m01bg.jpg')] bg-cover bg-center">
+        <img src="/assets/images/ASUS-ROG-ZEPHYRUS-G16-GA605KM-QR045WA-removebg.png" class="absolute inset-0 m-auto w-48 md:w-64 object-contain opacity-90" alt="ASUS-ROG-ZEPHYRUS-G16-GA605KM-QR045WA">
+          <div class="relative z-10 h-full flex justify-between items-end">
+            <h3 class="font-bold text-lg border-b-2 border-yellow-400 pb-1">
+              ASUS ROG ZEPHYRUS G16 GA605KM-QR045WA
+            </h3>
+              <div class="text-right">
+                <p class="text-[10px] font-bold uppercase tracking-wider text-gray-200">SALE OFF</p>
+                <p class="text-4xl font-black text-cyan-400 italic leading-none">10%</p>
+              </div>
+          </div>
+    </div>
+
+    
+    <div class="relative md:col-span-3 rounded-xl p-8 h-96 text-white overflow-hidden flex flex-col justify-end shadow-md hover:shadow-lg transition-transform hover:scale-105
+      bg-[url('/assets/bg-images/02bg.jpg')] bg-cover bg-center">
+        <img src="/assets/images/Vivo-V70.png" class="absolute inset-0 m-auto w-48 md:w-85 object-contain opacity-90" alt="Vivo-V70">
+          <div class="relative z-10 h-full flex justify-between items-end">
+            <div class="flex flex-col items-center">
+              <h3 class="font-bold text-lg border-b-2 border-yellow-400 pb-1">Best Sellers</h3>
+              <h2 class="text-4xl font-bold flex justify-start">Vivo V70</h2>
             </div>
-        </div>
+            <div class="mt-4">
+              <button class="bg-white/20 px-6 py-2 rounded-full backdrop-blur-sm border border-white/50 hover:bg-white hover:text-yellow-500 font-bold">
+              Shop Now
+              </button>
+            </div>
+          </div>
     </div>
 
-    <div class="md:col-span-2 bg-indigo-500 rounded-xl p-6 h-48 text-white relative overflow-hidden flex flex-col justify-end shadow-md hover:shadow-lg transition">
-      <h3 class="font-bold text-xl relative z-10">Soundbars</h3>
-      <p class="text-blue-200 font-bold relative z-10">SALE OFF 75%</p>
+    <div class="relative md:col-span-3 rounded-xl p-8 h-96 text-white overflow-hidden flex flex-col justify-end shadow-md hover:shadow-lg transition-transform hover:scale-105
+      bg-[url('/assets/bg-images/02bg.jpg')] bg-cover bg-center">
+        <img src="/assets/images/Lenovo-LOQ-Essential-15IRX11-83SC003GTA.png" class="absolute inset-0 m-auto w-48 md:w-85 object-contain opacity-90" alt="Vivo-V70">
+          <div class="relative z-10 h-full flex justify-between items-end">
+            <div class="flex flex-col items-center">
+              <h3 class="font-bold text-lg border-b-2 border-yellow-400 pb-1">Most Popular</h3>
+              <h2 class="text-4xl font-bold flex justify-start">Lenovo LOQ</h2>
+            </div>
+            <div class="mt-4">
+              <button class="bg-white/20 px-6 py-2 rounded-full backdrop-blur-sm border border-white/50 hover:bg-white hover:text-yellow-500 font-bold">
+              Shop Now
+              </button>
+            </div>
+          </div>
     </div>
-    <div class="md:col-span-2 bg-purple-600 rounded-xl p-6 h-48 text-white relative overflow-hidden flex flex-col justify-end shadow-md hover:shadow-lg transition">
-      <h3 class="font-bold text-xl relative z-10">Massage Chairs</h3>
-      <p class="text-blue-200 font-bold relative z-10">SALE OFF 50%</p>
-    </div>
-
-    <div class="md:col-span-3 bg-yellow-400 rounded-xl p-8 h-64 text-white flex flex-col justify-end shadow-md hover:shadow-lg transition">
-      <p class="text-sm font-bold opacity-80">Best Sellers</p>
-      <h2 class="text-4xl font-bold">ePhone X</h2>
-      <div class="mt-4"><button class="bg-white/20 px-6 py-2 rounded-full backdrop-blur-sm border border-white/50 hover:bg-white hover:text-yellow-500 font-bold">Shop Now</button></div>
-    </div>
-    <div class="md:col-span-3 bg-pink-300 rounded-xl p-8 h-64 text-white flex flex-col justify-end shadow-md hover:shadow-lg transition">
-      <p class="text-sm font-bold opacity-80">Most Popular</p>
-      <h2 class="text-4xl font-bold">Laptopo</h2>
-      <div class="mt-4"><button class="bg-white/20 px-6 py-2 rounded-full backdrop-blur-sm border border-white/50 hover:bg-white hover:text-pink-500 font-bold">Shop Now</button></div>
-    </div>
-
+    
   </div>
 </section>
 
