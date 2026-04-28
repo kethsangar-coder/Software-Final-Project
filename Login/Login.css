@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #170630, #471396, #170630);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 350px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.login-form h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.input-group {
+    margin-bottom: 1rem;
+    font-weight: 200;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+#login {
+    width: 100%;
+    padding: 10px;
+    background: rgb(255, 26, 239);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 15px;
+    
+}
+
+.social {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#google, #facebook {
+    flex: 1;
+    padding: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+#facebook {
+    background: rgb(61, 105, 238);
+    color: white;
+}
+
+#google {
+    background: white;
+    color: black;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+#message {
+    text-align: center;
+    margin-top: 10px;
+}
+
+h4 {
+    text-align: center;
+    color: grey;
+    font-weight: 300;
+}
+
+#DH {
+    text-align: center;
+}
+
+#FG {
+    text-align: end;
+}
+
+.icon {
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    object-fit: contain;
+}
+
+#Regis {
+    color: rgb(219, 34, 64);
+}
+
+#google:hover {
+    background: #f5f5f5;
+    transform: scale(1.02);
+}
+
+#facebook:hover {
+    background: rgb(45, 85, 220);
+    transform: scale(1.02);
+}

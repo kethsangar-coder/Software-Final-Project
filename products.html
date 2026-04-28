@@ -3,10 +3,332 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>E-Commerce UI - Electronics</title>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+      <style>
+        body { background-color: #0d001a; color: white; font-family: 'Inter', sans-serif; }
+        .bg-gradient-purple { background: linear-gradient(180deg, #1a0033 0%, #0d001a 100%); }
+        /* ปรับ Card ให้ดูมีมิติขึ้นนิดหน่อย */
+        .card-bg { 
+            background-color: #1a0033; 
+            border: 1px solid #2d004d; 
+            transition: all 0.3s ease;
+        }
+        .card-bg:hover {
+            border-color: #bc13fe;
+            transform: translateY(-4px);
+        }
+        .neon-text { text-shadow: 0 0 10px #bc13fe, 0 0 20px #bc13fe; }
+    </style>
 </head>
-<body>
+<body class="bg-gradient-to-r from-[#170630] via-[#471396] to-[#170630]">
+
+    <header class="p-2 bg-gradient-to-b from-[#471396] to-[#170630] flex flex-col gap-3 sticky top-0 z-50 border-b border-purple-900/50">
+        <div class="flex justify-between items-center max-w-7xl mx-auto w-full relative">
+            <div class="text-6xl font-bold tracking-tighter relative -left-7 top-4">Nova</div>
+            <div class="flex-1 mx-12 relative">
+                <input type="text" 
+                id="searchInput" 
+                oninput="applyFilters()" 
+                placeholder="Search products..."
+                class="w-full bg-[#2d004d] border border-[#bc13fe]/50 rounded-full py-1.5 px-4 text-sm focus:outline-none focus:border-[#bc13fe] transition-all">
+                <button class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="flex items-center text-sm gap-6">
+                <div class="flex gap-4 items-center text-sm">
+                    <a href="cart.html" class="flex items-center gap-2 border border-gray-500/50 px-4 py-2 rounded-full cursor-pointer hover:border-gray-400 hover:text-gray-300 transition-all duration-300 text-xs font-bold">
+                        <span>🛒 Cart</span>
+                    </a>
+                    <a href="Login/Loging.html">
+                      <button class="bg-[#bc13fe] px-6 py-2 rounded-full text-xs font-bold hover:shadow-[0_0_15px_#bc13fe] transition duration-300 transform active:scale-95">Sign In</button>
+                    </a>
+                </div>
+
+                <div class="flex gap-1 items-center text-sm cursor-pointer border-l border-white/10 pl-4">
+                    <span>US</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 9L12 15L18 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>   
+            </div>
+        </div>
+
+        <nav class="flex justify-center gap-6 text-xs uppercase tracking-wider text-gray-300">
+            <a href="index.html" class="hover:text-white border-b border-[#bc13fe] pb-1">Home</a>
+            <a href="products.html" class="hover:text-white transition pb-1">Promotion products</a>
+            <a href="products.html" class="hover:text-white transition pb-1">Computer & Laptops</a>
+            <a href="products.html" class="hover:text-white transition pb-1">Mobilephones & Tablets</a>
+            <a href="products.html" class="hover:text-white transition pb-1">Recommended</a>
+            <a href="products.html" class="hover:text-white transition pb-1">Cameras</a>
+            <a href="products.html" class="hover:text-white transition pb-1">Televisions</a>
+        </nav>
+    </header>
+
+
+<div class="text-2xl flex justify-start bg-[#3A1573] text-gray-300 px-6 py-5">
+  <nav class="flex items-center gap-3">
+    <a href="index.html" class="opacity-80 hover:opacity-100 hover:text-white transition">Home</a>
+    <span>&gt;</span>
+    <span class="font-semibold">Products</span>
+  </nav>
+</div>
+
+
+
+<section class="container mx-auto px-4 md:px-24  flex flex-col md:flex-row gap-8 bg-[#3A1573] min-h-screen ">
+
+  <aside class="w-full md:w-80 flex flex-col gap-4"> 
+
+  <div class="bg-[#180836] rounded-xl p-4 shadow-lg text-white">
+    <button onclick="toggleFilter()" class="flex justify-between items-center w-full text-lg font-bold pb-4 border-b border-gray-700 hover:text-purple-300 transition">
+      <span class="flex items-center text-3xl gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3zm2 2v1.586l4.707 4.707A1 1 0 0110 12v3.586l2-2V12a1 1 0 01.293-.707L17 6.586V5H5z" clip-rule="evenodd" />
+        </svg>
+        Filter
+      </span>
+      <svg id="filterIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </button>
+
+<div id="filterContent" class="flex flex-col gap-8 mt-4 transition-all duration-300">
+      
+      <section>
+        <h3 class="font-bold mb-4 text-xl">Products Categories</h3>
+        <p class="text-sm font-semibold mb-3 text-gray-400">All Products</p>
+        <div class="flex flex-col gap-3 text-base">
+
+          <label class="flex items-center gap-3 cursor-pointer whitespace-nowrap">
+            <input type="checkbox" name="category" value="smart-phones" onchange="applyFilters()" class="category-filter w-5 h-5 accent-[#A855F7] rounded">
+            <span>Smart Phones</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer whitespace-nowrap">
+            <input type="checkbox" name="category" value="accessories" onchange="applyFilters()" class="category-filter w-5 h-5 accent-[#A855F7] rounded">
+            <span>Accessories</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer whitespace-nowrap">
+            <input type="checkbox" name="category" value="tablets" onchange="applyFilters()" class="category-filter w-5 h-5 accent-[#A855F7] rounded">
+            <span>Tablets</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer whitespace-nowrap">
+            <input type="checkbox" name="category" value="computer-laptops" onchange="applyFilters()" class="category-filter w-5 h-5 accent-[#A855F7] rounded">
+            <span>Computer & Laptops</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer whitespace-nowrap">
+            <input type="checkbox" name="category" value="cameras" onchange="applyFilters()" class="category-filter w-5 h-5 accent-[#A855F7] rounded">
+            <span>Cameras</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer whitespace-nowrap">
+            <input type="checkbox" name="category" value="televisions" onchange="applyFilters()" class="category-filter w-5 h-5 accent-[#A855F7] rounded">
+            <span>Televisions</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer whitespace-nowrap">
+            <input type="checkbox" name="category" value="gaming-streaming" onchange="applyFilters()" class="category-filter w-5 h-5 accent-[#A855F7] rounded">
+            <span>Gaming & Streaming</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer whitespace-nowrap">
+            <input type="checkbox" name="category" value="it-accessories" onchange="applyFilters()" class="category-filter w-5 h-5 accent-[#A855F7] rounded">
+            <span>IT accessories</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer whitespace-nowrap">
+            <input type="checkbox" name="category" value="speakers-headphones" onchange="applyFilters()" class="category-filter w-5 h-5 accent-[#A855F7] rounded">
+            <span>Speakers & Headphones</span>
+          </label>
+        </div>
+      </section>
+
+      <hr class="border-gray-700 opacity-50">
+
+      <section>
+        <h3 class="font-bold mb-6 text-xl">Price Range</h3>
+        <input type="range" id="priceRange" min="0" max="5000" value="5000" oninput="applyFilters()" class="w-full h-2 bg-gray-600 rounded-lg appearance-none cursor-pointer accent-[#A855F7]">
+        <div class="flex justify-between text-base mt-4">
+          <span>0$</span>
+          <span id="priceDisplay">5000$</span>
+        </div>
+      </section>
+      
+      <hr class="border-gray-700 opacity-50">
+      
+      <section>
+  <h3 class="font-bold mb-4 text-xl text-white">Brand</h3>
+  <div class="flex flex-col gap-3 text-base text-gray-300">
     
+    <label class="flex items-center gap-3 cursor-pointer whitespace-nowrap">
+      <input type="checkbox" name="brand" value="apple" onchange="applyFilters()" class="brand-filter w-5 h-5 accent-[#A855F7] rounded">
+      <span>Apple</span>
+    </label>
+
+    <label class="flex items-center gap-3 cursor-pointer whitespace-nowrap">
+      <input type="checkbox" name="brand" value="samsung" onchange="applyFilters()" class="brand-filter w-5 h-5 accent-[#A855F7] rounded">
+      <span>Samsung</span>
+    </label>
+
+    <label class="flex items-center gap-3 cursor-pointer whitespace-nowrap">
+      <input type="checkbox" name="brand" value="oppo" onchange="applyFilters()" class="brand-filter w-5 h-5 accent-[#A855F7] rounded">
+      <span>Oppo</span>
+    </label>
+
+    <label class="flex items-center gap-3 cursor-pointer whitespace-nowrap">
+      <input type="checkbox" name="brand" value="xiaomi" onchange="applyFilters()" class="brand-filter w-5 h-5 accent-[#A855F7] rounded">
+      <span>Xiaomi</span>
+    </label>
+
+    <label class="flex items-center gap-3 cursor-pointer whitespace-nowrap">
+      <input type="checkbox" name="brand" value="asus" onchange="applyFilters()" class="brand-filter w-5 h-5 accent-[#A855F7] rounded">
+      <span>ASUS</span>
+    </label>
+
+    <label class="flex items-center gap-3 cursor-pointer whitespace-nowrap">
+      <input type="checkbox" name="brand" value="acer" onchange="applyFilters()" class="brand-filter w-5 h-5 accent-[#A855F7] rounded">
+      <span>Acer</span>
+    </label>
+
+    <label class="flex items-center gap-3 cursor-pointer whitespace-nowrap">
+      <input type="checkbox" name="brand" value="lenovo" onchange="applyFilters()" class="brand-filter w-5 h-5 accent-[#A855F7] rounded">
+      <span>Lenovo</span>
+    </label>
+
+    <label class="flex items-center gap-3 cursor-pointer whitespace-nowrap">
+      <input type="checkbox" name="brand" value="hp" onchange="applyFilters()" class="brand-filter w-5 h-5 accent-[#A855F7] rounded">
+      <span>HP</span>
+    </label>
+
+    <label class="flex items-center gap-3 cursor-pointer whitespace-nowrap">
+      <input type="checkbox" name="brand" value="dell" onchange="applyFilters()" class="brand-filter w-5 h-5 accent-[#A855F7] rounded">
+      <span>Dell</span>
+    </label>
+
+    <label class="flex items-center gap-3 cursor-pointer whitespace-nowrap">
+      <input type="checkbox" name="brand" value="msi" onchange="applyFilters()" class="brand-filter w-5 h-5 accent-[#A855F7] rounded">
+      <span>MSI</span>
+    </label>
+
+    <label class="flex items-center gap-3 cursor-pointer whitespace-nowrap">
+      <input type="checkbox" name="brand" value="microsoft" onchange="applyFilters()" class="brand-filter w-5 h-5 accent-[#A855F7] rounded">
+      <span>Microsoft</span>
+    </label>
+
+    <label class="flex items-center gap-3 cursor-pointer whitespace-nowrap">
+      <input type="checkbox" name="brand" value="huawei" onchange="applyFilters()" class="brand-filter w-5 h-5 accent-[#A855F7] rounded">
+      <span>Huawei</span>
+    </label>
+
+  </div>
+</section>
+
+</div>
+    </div>
+  </aside>
+
+  <main class="w-full px-6 md:w-3/4 lg:w-4/5">
+    
+    <div class="flex justify-between items-end mb-6">
+      <h1 class="text-2xl md:text-3xl font-bold text-white">All Products (<span id="count">0</span>)</h1>
+    </div>
+
+    <div id="productGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6"></div>
+    <div id="paginationControls"></div>
+  </main>
+  
+</section>
+
+
+
+        <section class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center py-6">
+            <div class="flex flex-col items-center gap-2 p-4 border-r border-purple-900/50">
+                <span class="text-3xl">🚚</span>
+                <h3 class="text-[10px] font-bold uppercase tracking-widest text-gray-300">Free shipping throughout Lao</h3>
+            </div>
+            <div class="flex flex-col items-center gap-2 p-4 border-r border-purple-900/50">
+                <span class="text-3xl">📦</span>
+                <h3 class="text-[10px] font-bold uppercase tracking-widest text-gray-300">Express delivery within 3 hours.</h3>
+            </div>
+            <div class="flex flex-col items-center gap-2 p-4 border-r border-purple-900/50">
+                <span class="text-3xl">🏪</span>
+                <h3 class="text-[10px] font-bold uppercase tracking-widest text-gray-300">Pick up at the store.</h3>
+            </div>
+            <div class="flex flex-col items-center gap-2 p-4">
+                <span class="text-3xl">🔄</span>
+                <h3 class="text-[10px] font-bold uppercase tracking-widest text-gray-300">Easy exchange or return.</h3>
+            </div>
+        </section>
+
+
+
+      <footer class="mt-10 bg-[#0a0014] p-10 border-t border-purple-900/50">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 text-[11px] text-gray-400">
+            <div class="space-y-4">
+                <h5 class="text-white font-bold text-sm uppercase tracking-widest">Help</h5>
+                <ul class="space-y-2">
+                    <li class="hover:text-white cursor-pointer">Product warranty conditions</li>
+                    <li class="hover:text-white cursor-pointer">Order history</li>
+                    <li class="hover:text-white cursor-pointer">Favorite products</li>
+                </ul>
+            </div>
+            <div class="space-y-4">
+                <h5 class="text-white font-bold text-sm uppercase tracking-widest">Serve</h5>
+                <ul class="space-y-2">
+                    <li class="hover:text-white cursor-pointer">Simple steps to place an order on BNN.in.th</li>
+                    <li class="hover:text-white cursor-pointer">Pay via ShopeePay.</li>
+                    <li class="hover:text-white cursor-pointer">Shipping</li>
+                    <li class="hover:text-white cursor-pointer">Shop and pick up your order at the store.</li>
+                    <li class="hover:text-white cursor-pointer">Warranty and Claims Policy</li>
+                </ul>
+            </div>
+            <div class="space-y-4">
+                <h5 class="text-white font-bold text-sm uppercase tracking-widest">Contact Information</h5>
+                <p>📘 ຊື່ຮ້ານຂາຍຄອມພິວເຕີ ແລະ ອຸປະກອນIT</p>
+                <p>📞 020 ########</p>
+                <p>📧 ຮ້ານຫຍັງກາບໍ່ຮູ້@gmail.com</p>
+            </div>
+            <div class="space-y-4">
+                <h5 class="text-white font-bold text-sm uppercase tracking-widest">Support payments</h5>
+                <div class="flex gap-2 flex-wrap">
+                    <div class="bg-white/10 w-24 h-6 border-white/5 hover:border-purple-500 transition cursor-pointer">
+                        <img src="IMG/BCELONE.jpg" alt="" class="w-24 h-6">
+                    </div>
+                    <div class="bg-white/10 w-24 h-6 border-white/5 hover:border-purple-500 transition cursor-pointer">
+                        <img src="IMG/MasterCard.jpg" alt="" class="w-24 h-6 object-cover">
+                    </div>
+                    <div class="bg-white/10 w-24 h-6 border-white/5 hover:border-purple-500 transition cursor-pointer">
+                        <img src="IMG/Paypal.jpg" alt="" class="w-24 h-6 object-cover">
+                    </div>
+                    <div class="bg-white/10 w-24 h-6 border-white/5 hover:border-purple-500 transition cursor-pointer">
+                        <img src="IMG/Visa.jpg" alt="" class="w-24 h-6 object-center">
+                    </div>
+                </div>
+
+                <h5 class="text-white font-bold text-sm uppercase tracking-widest">Support relaxtions</h5>
+                <div class="flex gap-2 flex-wrap">
+                    <div class="bg-white/10 w-24 h-6 border-white/5 hover:border-purple-500 transition cursor-pointer">
+                        <img src="IMG/Anousith.jpg" alt="" class="w-24 h-6 object-cover">
+                    </div>
+                    <div class="bg-white/10 w-24 h-6 border-white/5 hover:border-purple-500 transition cursor-pointer">
+                        <img src="IMG/Mixay.png" alt="" class="w-24 h-6 object-cover">
+                    </div>
+                    <div class="bg-white/10 w-24 h-6 border-white/5 hover:border-purple-500 transition cursor-pointer">
+                        <img src="IMG/HAL.jpg" alt="" class="w-24 h-6 object-center">
+                    </div>
+                </div> 
+
+            </div>
+        </div>
+        <div class="text-center text-[10px] mt-16 opacity-30 tracking-widest">COPYRIGHT © 2026 ALL RIGHTS RESERVED</div>
+    </footer>
+
+
+
+
+
+
+<script src="js/products.js"></script>
 </body>
 </html>
+ 

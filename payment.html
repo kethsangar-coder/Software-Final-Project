@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="lo">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping & Payment - Quantum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Noto Sans Lao', sans-serif; 
+            background-color: #0d001a; 
+            color: white; 
+        }
+        .card-bg { 
+            background-color: #1a0033; 
+            border: 1px solid #2d004d; 
+        }
+        /* ປັບແຕ່ງ Scrollbar ໃຫ້ງາມ */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1a0033; }
+        ::-webkit-scrollbar-thumb { background: #471396; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-[#170630] via-[#471396] to-[#170630] min-h-screen">
+  
+    <header class="p-2 bg-gradient-to-b from-[#471396] to-[#170630] flex flex-col gap-3 sticky top-0 z-50 border-b border-purple-900/50">
+        <div class="flex justify-between items-center max-w-7xl mx-auto w-full relative">
+            <div class="text-6xl font-bold tracking-tighter relative -left-7 top-4">Nova</div>
+            <div class="flex-1 mx-12 relative">
+                <input type="text" 
+                id="searchInput" 
+                oninput="applyFilters()" 
+                placeholder="Search products..."
+                class="w-full bg-[#2d004d] border border-[#bc13fe]/50 rounded-full py-1.5 px-4 text-sm focus:outline-none focus:border-[#bc13fe] transition-all">
+                <button class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="flex items-center text-sm gap-6">
+                <div class="flex gap-4 items-center text-sm">
+                    <a href="cart.html" class="flex items-center gap-2 border border-gray-500/50 px-4 py-2 rounded-full cursor-pointer hover:border-gray-400 hover:text-gray-300 transition-all duration-300 text-xs font-bold">
+                        <span>🛒 Cart</span>
+                    </a>
+                    <a href="Login/Loging.html">
+                      <button class="bg-[#bc13fe] px-6 py-2 rounded-full text-xs font-bold hover:shadow-[0_0_15px_#bc13fe] transition duration-300 transform active:scale-95">Sign In</button>
+                    </a>
+                </div>
+
+                <div class="flex gap-1 items-center text-sm cursor-pointer border-l border-white/10 pl-4">
+                    <span>US</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 9L12 15L18 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>   
+            </div>
+        </div>
+
+        <nav class="flex justify-center gap-6 text-xs uppercase tracking-wider text-gray-300">
+            <a href="index.html" class="hover:text-white border-b border-[#bc13fe] pb-1">Home</a>
+            <a href="products.html" class="hover:text-white transition pb-1">Promotion products</a>
+            <a href="products.html" class="hover:text-white transition pb-1">Computer & Laptops</a>
+            <a href="products.html" class="hover:text-white transition pb-1">Mobilephones & Tablets</a>
+            <a href="products.html" class="hover:text-white transition pb-1">Recommended</a>
+            <a href="products.html" class="hover:text-white transition pb-1">Cameras</a>
+            <a href="products.html" class="hover:text-white transition pb-1">Televisions</a>
+        </nav>
+    </header>
+
+        <div class="text-2xl flex justify-start text-gray-300 px-6 py-5">
+        <nav class="flex items-center gap-3">
+        <a href="index.html" class="opacity-80 hover:opacity-100 hover:text-white transition">Home</a>
+         <span>&gt;</span>
+        <a href="products.html" class="opacity-80 hover:opacity-100 hover:text-white transition">Products</a>
+        <span>&gt;</span>
+        <a href="detail.html" class="opacity-80 hover:opacity-100 hover:text-white transition">Details</a>
+        <span>&gt;</span>
+        <a href="cart.html" class="opacity-80 hover:opacity-100 hover:text-white transition">Cart</a>
+        <span>&gt;</span>
+        <span class="font-semibold">Payments</span>
+         </nav>
+    </div>
+
+    <main class="container mx-auto max-w-6xl px-4 pb-20">
+        <div class="flex flex-col lg:flex-row gap-8">
+            
+            <div class="flex-1 space-y-6">
+                
+                <section class="bg-[#3A1573]/60 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-white/5">
+                    <h2 class="text-xl font-bold mb-4">Shipping address</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-2 text-sm text-gray-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            Current address
+                        </div>
+                        <button class="w-full py-10 border-2 border-dashed border-purple-500/30 rounded-xl text-gray-400 hover:border-purple-500 hover:text-white transition-all bg-[#4F1F9B]/50">
+                            <span class="text-3xl block mb-1">+</span>
+                            New address
+                        </button>
+                    </div>
+                </section>
+
+                <section class="bg-[#2D1B5E]/60 p-6 rounded-2xl shadow-xl border border-white/5">
+                    <h2 class="text-xl font-bold mb-4">Choose a shipping method.</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <label class="relative border-2 border-purple-600 bg-[#3A1573] p-4 rounded-xl cursor-pointer block">
+                            <div class="flex justify-between items-start mb-1">
+                                <div class="flex items-center gap-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1" />
+                                    </svg>
+                                    <span class="font-bold">Standard shipping</span>
+                                </div>
+                                <span class="font-bold text-green-400 uppercase text-xs">free</span>
+                            </div>
+                            <p class="text-[11px] text-gray-400">Estimated delivery time: 1-7 days*</p>
+                        </label>
+
+                        <label class="relative border-2 border-transparent bg-[#1a0033] p-4 rounded-xl cursor-pointer hover:border-purple-500/50 transition block">
+                            <div class="flex justify-between items-start mb-1">
+                                <div class="flex items-center gap-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    </svg>
+                                    <span class="font-bold text-gray-300">Express</span>
+                                </div>
+                                <span class="font-bold text-purple-400 uppercase text-xs">6$</span>
+                            </div>
+                            <p class="text-[11px] text-gray-400">Estimated delivery time: within 3 hours*</p>
+                        </label>
+                    </div>
+
+                    <div class="mt-6 p-4 bg-[#4F1F9B]/40 rounded-xl text-[12px] text-gray-300 space-y-2 border border-white/5">
+                        <p class="font-bold text-white uppercase text-[10px] tracking-widest opacity-70">Terms and Conditions</p>
+                        <p class="underline text-purple-300">Shipping conditions</p>
+                        <ul class="list-disc pl-4 space-y-1 opacity-80">
+                            <li>Electric scooters, treadmills, and DIY computers take 5-7 days to ship.</li>
+                            <li>Home & Small Appliances: Vientiane 5-7 days, provinces 7-10 days.</li>
+                            <li>Orders before 1:00 PM ship within 1-3 days.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="p-2">
+                    <label class="text-sm font-bold block mb-2">Additional information regarding delivery location (if any).</label>
+                    <input type="text" placeholder="Example: please place the items at the reception desk" 
+                           class="w-full bg-transparent border-b border-gray-600 py-2 outline-none focus:border-purple-500 transition text-sm">
+                </section>
+
+                <section class="bg-[#2D1B5E]/60 p-6 rounded-2xl shadow-xl border border-white/5 space-y-4">
+                    <h2 class="text-xl font-bold">Payment methods</h2>
+                    <div class="space-y-3">
+                        <label class="flex items-center justify-between bg-[#4F1F9B] p-4 rounded-xl border border-purple-500 cursor-pointer">
+                            <div class="flex items-center gap-3">
+                                <input type="radio" name="payment" checked class="w-4 h-4 accent-purple-500">
+                                <span class="text-sm font-medium">Pay with credit/debit card</span>
+                            </div>
+                            <div class="flex gap-2 opacity-80">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" class="h-3" alt="visa">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" class="h-4" alt="mastercard">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="h-3" alt="paypal">
+                            </div>
+                        </label>
+                        <label class="flex items-center justify-between bg-[#4F1F9B] p-4 rounded-xl border border-transparent hover:border-purple-500/50 cursor-pointer transition">
+                            <div class="flex items-center gap-3">
+                                <input type="radio" name="payment" class="w-4 h-4 accent-purple-500">
+                                <span class="text-sm font-medium text-gray-300">Pay with QR code</span>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
+                            </svg>
+                        </label>
+                    </div>
+
+                    <div class="pt-4 space-y-4">
+                        <div class="flex items-start gap-3">
+                            <input type="checkbox" id="accept" class="mt-1 accent-purple-500">
+                            <label for="accept" class="text-[11px] text-gray-400 leading-tight">
+                                I acknowledge that I have read and accepted <span class="underline cursor-pointer">Terms and condition</span> and <span class="underline cursor-pointer">Privacy Policy</span>. The com7 order is complete.
+                            </label>
+                        </div>
+                        <button class="w-full bg-gradient-to-r from-purple-600 to-fuchsia-600 py-4 rounded-xl font-bold hover:scale-[1.02] active:scale-95 transition shadow-lg shadow-purple-500/20 text-sm">
+                            Review your order and make payment.
+                        </button>
+                    </div>
+                </section>
+            </div>
+
+            <aside class="w-full lg:w-80 shrink-0">
+                <div class="bg-[#4F1F9B] p-6 rounded-2xl shadow-xl border border-white/10 sticky top-24">
+                    <div class="flex gap-2 mb-6">
+                        <input type="text" placeholder="Discount coupon" 
+                               class="flex-1 bg-transparent border-b border-gray-600 text-xs py-1 outline-none focus:border-purple-400">
+                        <button class="border border-white/40 px-3 py-1 rounded text-[10px] hover:bg-white hover:text-black transition">In use</button>
+                    </div>
+
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Total</span>
+                            <span id="totalBefore" class="font-bold">0</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Discount</span>
+                            <span class="text-red-400">-0</span>
+                        </div>
+                        <hr class="border-white/10">
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Shipping cost</span>
+                            <span>0</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Shipping discount</span>
+                            <span>-0</span>
+                        </div>
+                        <div class="flex justify-between text-lg font-bold pt-2 border-t border-white/10 mt-2">
+                            <span>Net amount</span>
+                            <span id="netAmount" class="text-purple-400">0</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 bg-[#3A1573]/50 p-3 rounded-lg border border-purple-500/30 flex gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple-400 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                        </svg>
+                        <p class="text-[10px] text-gray-300 leading-tight">Some items are not eligible for certain shipping methods or payment methods.</p>
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+
+    <footer class="mt-10 bg-[#0a0014] p-10 border-t border-purple-900/50">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 text-[11px] text-gray-400">
+            <div class="space-y-4">
+                <h5 class="text-white font-bold text-sm uppercase tracking-widest">Help</h5>
+                <ul class="space-y-2">
+                    <li class="hover:text-white cursor-pointer">Product warranty conditions</li>
+                    <li class="hover:text-white cursor-pointer">Order history</li>
+                    <li class="hover:text-white cursor-pointer">Favorite products</li>
+                </ul>
+            </div>
+            <div class="space-y-4">
+                <h5 class="text-white font-bold text-sm uppercase tracking-widest">Serve</h5>
+                <ul class="space-y-2">
+                    <li class="hover:text-white cursor-pointer">Simple steps to place an order on BNN.in.th</li>
+                    <li class="hover:text-white cursor-pointer">Pay via ShopeePay.</li>
+                    <li class="hover:text-white cursor-pointer">Shipping</li>
+                    <li class="hover:text-white cursor-pointer">Shop and pick up your order at the store.</li>
+                    <li class="hover:text-white cursor-pointer">Warranty and Claims Policy</li>
+                </ul>
+            </div>
+            <div class="space-y-4">
+                <h5 class="text-white font-bold text-sm uppercase tracking-widest">Contact Information</h5>
+                <p>📘 ຊື່ຮ້ານຂາຍຄອມພິວເຕີ ແລະ ອຸປະກອນIT</p>
+                <p>📞 020 ########</p>
+                <p>📧 ຮ້ານຫຍັງກາບໍ່ຮູ້@gmail.com</p>
+            </div>
+            <div class="space-y-4">
+                <h5 class="text-white font-bold text-sm uppercase tracking-widest">Support payments</h5>
+                <div class="flex gap-2 flex-wrap">
+                    <div class="bg-white/10 w-24 h-6 border-white/5 hover:border-purple-500 transition cursor-pointer">
+                        <img src="IMG/BCELONE.jpg" alt="" class="w-24 h-6">
+                    </div>
+                    <div class="bg-white/10 w-24 h-6 border-white/5 hover:border-purple-500 transition cursor-pointer">
+                        <img src="IMG/MasterCard.jpg" alt="" class="w-24 h-6 object-cover">
+                    </div>
+                    <div class="bg-white/10 w-24 h-6 border-white/5 hover:border-purple-500 transition cursor-pointer">
+                        <img src="IMG/Paypal.jpg" alt="" class="w-24 h-6 object-cover">
+                    </div>
+                    <div class="bg-white/10 w-24 h-6 border-white/5 hover:border-purple-500 transition cursor-pointer">
+                        <img src="IMG/Visa.jpg" alt="" class="w-24 h-6 object-center">
+                    </div>
+                </div>
+
+                <h5 class="text-white font-bold text-sm uppercase tracking-widest">Support relaxtions</h5>
+                <div class="flex gap-2 flex-wrap">
+                    <div class="bg-white/10 w-24 h-6 border-white/5 hover:border-purple-500 transition cursor-pointer">
+                        <img src="IMG/Anousith.jpg" alt="" class="w-24 h-6 object-cover">
+                    </div>
+                    <div class="bg-white/10 w-24 h-6 border-white/5 hover:border-purple-500 transition cursor-pointer">
+                        <img src="IMG/Mixay.png" alt="" class="w-24 h-6 object-cover">
+                    </div>
+                    <div class="bg-white/10 w-24 h-6 border-white/5 hover:border-purple-500 transition cursor-pointer">
+                        <img src="IMG/HAL.jpg" alt="" class="w-24 h-6 object-center">
+                    </div>
+                </div> 
+
+            </div>
+        </div>
+        <div class="text-center text-[10px] mt-16 opacity-30 tracking-widest">COPYRIGHT © 2026 ALL RIGHTS RESERVED</div>
+    </footer>
+    
+<script src="js/payment.js"></script>
+</body>
+</html>

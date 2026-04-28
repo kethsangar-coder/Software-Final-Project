@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="lo">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ໜ້າເຂົ້າສູ່ລະບົບ</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <form id="loginForm" class="login-form">
+            <h2>Logo</h2>
+
+            <div class="input-group">
+                <label>Phone Number</label>
+                <input type="text" id="PhoneN" required>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="pass" required>
+            </div>
+
+            <a href="#"><h5 id="FG">Forget Password?</h5></a>
+
+            <button type="submit" id="login">Login</button>
+            <p id="message"></p>
+
+            <h4>OR</h4>
+
+            <div class="social">
+                <button type="button" id="google">
+                <img src="../IMG/Google.png" class="icon">Google</button>
+                <button type="button" id="facebook">
+                <img src="../IMG/facebook.png" class="icon">Facebook</button>
+            </div>
+
+            <h5 id="DH">Don't have an account? <a href="#" id="Regis">Register</a></h5>
+        </form>
+    </div>
+
+    <script src="/Login/login.js"></script>
+</body>
+</html>

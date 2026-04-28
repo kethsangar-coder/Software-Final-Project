@@ -1,133 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-6">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Project </title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>E-Commerce UI - Electronics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0d001a; color: white; font-family: 'Inter', sans-serif; }
+        .bg-gradient-purple { background: linear-gradient(180deg, #1a0033 0%, #0d001a 100%); }
+        /* ປັບ Card ໃຫ້ເບິ່ງມີມິຕິຂຶ້ນໜ້ອຍໜຶ່ງ */
+        .card-bg { 
+            background-color: #1a0033; 
+            border: 1px solid #2d004d; 
+            transition: all 0.3s ease;
+        }
+        .card-bg:hover {
+            border-color: #bc13fe;
+            transform: translateY(-4px);
+        }
+        .neon-text { text-shadow: 0 0 10px #bc13fe, 0 0 20px #bc13fe; }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE/Edge */
+            scrollbar-width: none;     /* Firefox */
+        }
+    </style>
 </head>
+
 <body class="bg-gradient-to-r from-[#170630] via-[#471396] to-[#170630]">
 
-<header class="sticky top-0 z-50 w-full bg-gradient-to-b from-[#471396] to-[#170630] text-white shadow-lg">
-  <div class="container mx-auto px-10 py-3 flex items-center gap-12">
-    
-    <div class="text-5xl font-bold tracking-tight shrink-0">
-      Logo
-    </div>
-
-    <div class="flex-1 flex flex-col gap-4">
-      
-      <div class="flex items-center justify-between gap-4">
-        
-        <div class="flex-1 max-w-3xl relative">
-          <input type="text" placeholder="Search..." 
-                 class="w-full bg-white/10 border border-white/20 rounded-full py-2.5 px-6 outline-none focus:bg-white/20 transition">
-          <button class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-300">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-          </button>
-        </div>
-
-        <div class="flex items-center gap-4 shrink-0">
-          <button class="flex items-center gap-2 border border-white/30 px-6 py-2 rounded-full hover:bg-white/10 transition text-sm font-medium">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
-            <span>Cart</span>
-          </button>
-          <button class="flex items-center gap-2 border border-white/30 px-6 py-2 rounded-full hover:bg-white/10 transition text-sm font-medium">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-            </svg>
-            <span>Sign In</span>
-          </button>
-        </div>
-
-      </div>
-
-      <nav class="flex items-center justify-start gap-8 text-sm font-medium overflow-x-auto no-scrollbar">
-        <a href="#" class="hover:text-cyan-400 transition whitespace-nowrap">Home</a>
-        <a href="#" class="hover:text-cyan-400 transition whitespace-nowrap">Promotion products</a>
-        <a href="#" class="hover:text-cyan-400 transition whitespace-nowrap">Computer & Laptops</a>
-        <a href="#" class="hover:text-cyan-400 transition whitespace-nowrap">Mobilephones & Tablets</a>
-        <a href="#" class="hover:text-cyan-400 whitespace-nowrap font-bold">Recommended</a>
-        <a href="#" class="hover:text-cyan-400 transition whitespace-nowrap">Cameras</a>
-        <a href="#" class="hover:text-cyan-400 transition whitespace-nowrap">Televisions</a>
-        <a href="#" class="hover:text-cyan-400 whitespace-nowrap">History</a>
-        <a href="#" class="hover:text-cyan-400 transition whitespace-nowrap">Contact</a>
-      </nav>
-
-    </div>
-  </div>
-</header>
-<section class="w-full bg-white text-white px-30 py-8
-    bg-[url('/assets/bg-images/m02bg.jpg')] bg-cover bg-center opacity-100">
-      <div class="container mx-auto flex flex-col md:flex-row items-center">
-        <div class="md:w-1/2 space-y-4">
-          <h1 class="text-4xl text-white font-bold leading-tight">Latest Electronics <span class="text-white">on</span>
-            <br> <span class="text-purple-500">Deals.</span></h1>
-              <p class="text-sm ">Engineered for the void. Curated high-performance 
-                <br> hardware for the digital avant-garde. 
-                <br> Enter the sanctuary of tech precision.</p>
-                <button class="mt-4 border-2 border-white px-8 py-2 rounded-full hover:bg-white hover:text-purple-600 transition font-bold">
-                Shop Now
+    <header class="p-4 bg-gradient-to-b from-[#471396] to-[#170630] flex flex-col gap-4 sticky top-0 z-50 border-b border-purple-900/50">
+        <div class="flex justify-between items-center max-w-7xl mx-auto w-full relative">
+            <div class="text-5xl font-bold tracking-tighter relative -left-7 top-4">LOGO</div>
+            <div class="flex-1 mx-6 relative">
+                <input type="text" placeholder="Search..." class="w-full bg-[#2d004d] border border-[#bc13fe]/50 rounded-full py-1.5 px-4 text-sm focus:outline-none focus:border-[#bc13fe] transition-all">
+                <button class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
                 </button>
+            </div>
+
+            <div class="flex items-center text-sm gap-6">
+                <div class="flex gap-4 items-center text-sm">
+                    <a href="cart.html" class="flex items-center gap-2 border border-gray-500/50 px-4 py-2 rounded-full cursor-pointer hover:border-gray-400 hover:text-gray-300 transition-all duration-300 text-xs font-bold">
+                        <span>🛒 Cart</span>
+                    </a>
+                    <button class="bg-[#bc13fe] px-6 py-2 rounded-full text-xs font-bold hover:shadow-[0_0_15px_#bc13fe] transition duration-300 transform active:scale-95">Sign In</button>
+                </div>
+
+                <div class="flex gap-1 items-center text-sm cursor-pointer border-l border-white/10 pl-4">
+                    <span>US</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 9L12 15L18 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>   
+            </div>
         </div>
-          <div class="md:w-1/2 mt-8 md:mt-0">
-            <img src="/assets/images/Neo-QLED-QN80F-4K-Samsung-Vision-A-Smart-TV.jpg"
-             class="w-full h-64 object-contain mx-auto bg-black/20 rounded-lg flex items-center justify-center border border-white/30">
-          </div>
-      </div>
+
+        <nav class="flex justify-center gap-6 text-xs uppercase tracking-wider text-gray-300">
+            <a href="index.html" class="hover:text-white border-b border-[#bc13fe] pb-1">Home</a>
+            <a href="products.html" class="hover:text-white transition pb-1">Promotion products</a>
+            <a href="products.html" class="hover:text-white transition pb-1">Computer & Laptops</a>
+            <a href="products.html" class="hover:text-white transition pb-1">Mobilephones & Tablets</a>
+            <a href="products.html" class="hover:text-white transition pb-1">Recommended</a>
+            <a href="products.html" class="hover:text-white transition pb-1">Cameras</a>
+            <a href="products.html" class="hover:text-white transition pb-1">Televisions</a>
+        </nav>
+    </header>
+
+        
+ <section class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center px-24 pt-6">
+                 
+    <div class="space-y-8">
+                <h1 class="text-5xl md:text-6xl font-bold leading-tight">Latest Electronics <br><span class="text-[#bc13fe] neon-text inline-block translate-y-4">Deals.</span></h1>
+                <p class="text-gray-400 text-sm max-w-md">Engineered for the void. Curated high-performance hardware for this digital avant-garde. Enter the sanctuary of tech precision.</p>
+                <a href="products.html">
+                    <button class="bg-[#bc13fe] px-6 py-3 rounded-full font-bold hover:shadow-[0_0_20px_rgba(188,19,254,0.4)] transition">Shop Now</button>
+                </a>
+            </div>
+            <a href="products.html">
+                <div class="relative xl overflow-hidden rounded-xl border border-[#bc13fe]/30 shadow-[0_0_50px_-12px_rgba(188,19,254,0.3)]">
+                <img src="IMG/Asus ROG.jpg" alt="Main Banner" class="w-full object-cover border-2 border-[#bc13fe]">
+            </div>
+            </a>
+            
+        </section>
+
+        <section class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center py-6">
+            <div class="flex flex-col items-center gap-2 p-4 border-r border-purple-900/50">
+                <span class="text-3xl">🚚</span>
+                <h3 class="text-[10px] font-bold uppercase tracking-widest text-gray-300">Free shipping throughout Lao</h3>
+            </div>
+            <div class="flex flex-col items-center gap-2 p-4 border-r border-purple-900/50">
+                <span class="text-3xl">📦</span>
+                <h3 class="text-[10px] font-bold uppercase tracking-widest text-gray-300">Express delivery within 3 hours.</h3>
+            </div>
+            <div class="flex flex-col items-center gap-2 p-4 border-r border-purple-900/50">
+                <span class="text-3xl">🏪</span>
+                <h3 class="text-[10px] font-bold uppercase tracking-widest text-gray-300">Pick up at the store.</h3>
+            </div>
+            <div class="flex flex-col items-center gap-2 p-4">
+                <span class="text-3xl">🔄</span>
+                <h3 class="text-[10px] font-bold uppercase tracking-widest text-gray-300">Easy exchange or return.</h3>
+            </div>
+        </section>
+
+<section class="cover er mx-auto px-24 py-4 flex flex-col gap-6">
+<section class="w-full px-4 py-6"> 
+    <div class="relative left-1/2 -translate-x-1/2 w-[105%] md:w-[115%] grid grid-cols-2 gap-4">
+        
+        <a href="product1.html" class="block">
+            <div class="relative overflow-hidden aspect-[21/9] rounded-xl border border-purple-500/20 group">
+                <img src="IMG/Blue.jpeg" alt="Intel Upgrades" 
+                     class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+            </div>
+        </a>
+
+        <a href="product2.html" class="block">
+            <div class="relative overflow-hidden aspect-[21/9] rounded-xl border border-purple-500/20 group">
+                <img src="IMG/MADE FOR GAMING.jpeg" alt="Made for Gaming" 
+                     class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+            </div>
+        </a>
+        
+    </div>
 </section>
 
-<section class="bg-white px-30 py-4 border-b">
-  <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 text-center text-sm font-bold text-gray-700">
-    <div class="flex items-center justify-center gap-2">🚚 Free Shipping & Returns</div>
-    <div class="flex items-center justify-center gap-2 border-l border-r border-gray-200">🏅 Lowest Price Guarantee</div>
-    <div class="flex items-center justify-center gap-2">🏆 Longest Warranties Offer</div>
-  </div>
-</section>
 
-<section class="container mx-auto px-24 py-4 flex flex-col gap-8">
-
-  <div class="grid grid-cols-1 md:grid-cols-6 gap-6">
-    <div class="relative md:col-span-3 rounded-xl p-8 h-56 text-white overflow-hidden flex flex-col justify-end shadow-md hover:shadow-lg transition-transform hover:scale-105 bg-[url('/assets/bg-images/02bg.jpg')] bg-cover bg-center">
-      <img src="/assets/images/Rectangle 11.jpg" class="absolute inset-0 m-auto w-48 md:w-85 object-contain opacity-90" alt="Vivo-V70">
-      <div class="relative z-10 h-full flex justify-between items-end">
-        <div class="flex flex-col items-center">
-          <h3 class="font-bold text-lg border-b-2 border-yellow-400 pb-1">Best Sellers</h3>
-          <h2 class="text-4xl font-bold flex justify-start">...</h2>
-        </div>
-        <div class="mt-4">
-          <button class="bg-white/20 px-6 py-2 rounded-full backdrop-blur-sm border border-white/50 hover:bg-white hover:text-yellow-500 font-bold">
-            Shop Now
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="relative md:col-span-3 rounded-xl p-8 h-56 text-white overflow-hidden flex flex-col justify-end shadow-md hover:shadow-lg transition-transform hover:scale-105 bg-[url('/assets/bg-images/02bg.jpg')] bg-cover bg-center">
-      <img src="/assets/images/Rectangle 12.jpg" class="absolute inset-0 m-auto w-48 md:w-85 object-contain opacity-90" alt="Lenovo-LOQ">
-      <div class="relative z-10 h-full flex justify-between items-end">
-        <div class="flex flex-col items-center">
-          <h3 class="font-bold text-lg border-b-2 border-yellow-400 pb-1">Most Popular</h3>
-          <h2 class="text-4xl font-bold flex justify-start">...</h2>
-        </div>
-        <div class="mt-4">
-          <button class="bg-white/20 px-6 py-2 rounded-full backdrop-blur-sm border border-white/50 hover:bg-white hover:text-yellow-500 font-bold">
-            Shop Now
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="w-full">
-    <div class="flex justify-between items-center mb-4  ">
-      <h2 class="text-3xl font-bold text-white">Mobilephone & Tablet</h2>
-      <a href="your-page-link.html" class="text-2xl text-blue-400 hover:text-blue-300 hover:underline flex items-center gap-1 transition">
+<div class="w-full">
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-2xl font-semibold text-white tracking-tight">Mobilephone & Tablet</h2>
+      <a href="#" class="text-xl text-purple-400 hover:text-blue-300 hover:underline flex items-center gap-1 transition">
         Show All
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -135,38 +142,53 @@
       </a>
     </div>
 
-      <div id="scroll-container" class="flex gap-4 overflow-x-auto no-scrollbar pb-4 cursor-grab active:cursor-grabbing select-none"
-        >
-        <div class="w-[31%] md:w-[calc(33.333%-12px)] h-[160px] shrink-0 overflow-hidden rounded-lg">
-          <img src="/assets/images/Rectangle 15.jpg" class="w-full h-full object-cover" alt="Product 1">
-        </div>
-        <div class="w-[31%] md:w-[calc(33.333%-12px)] h-[160px] shrink-0 overflow-hidden rounded-lg">
-          <img src="/assets/images/Rectangle 16.jpg" class="w-full h-full object-cover" alt="Product 1">
-        </div>
-        <div class="w-[31%] md:w-[calc(33.333%-12px)] h-[160px] shrink-0 overflow-hidden rounded-lg">
-          <img src="/assets/images/Rectangle 17.jpg" class="w-full h-full object-cover" alt="Product 1">
-        </div>
-        <div class="w-[31%] md:w-[calc(33.333%-12px)] h-[160px] shrink-0 overflow-hidden rounded-lg">
-          <img src="/assets/images/Rectangle 18.jpg" class="w-full h-full object-cover" alt="Product 1">
-        </div>
-        <div class="w-[31%] md:w-[calc(33.333%-12px)] h-[160px] shrink-0 overflow-hidden rounded-lg">
-          <img src="/assets/images/Rectangle 19.jpg" class="w-full h-full object-cover" alt="Product 1">
-        </div>
-        <div class="w-[31%] md:w-[calc(33.333%-12px)] h-[160px] shrink-0 overflow-hidden rounded-lg">
-          <img src="/assets/images/Rectangle 20.jpg" class="w-full h-full object-cover" alt="Product 1">
-        </div>
-        
-      </div>
-  </div>
+  <div class="flex gap-6 overflow-x-auto no-scrollbar pb-6 cursor-grab active:cursor-grabbing select-none">
 
-</section>
+  <a href="products.html" class="block w-[400px] h-[200px] shrink-0">
+    <div class="w-full h-full bg-white/5 border border-white/10 flex overflow-hidden hover:border-purple-500 transition rounded-xl">
+      <img src="IMG/Iphone.jpeg" class="w-full h-full object-cover" alt="Iphone">
+    </div>
+  </a>
 
-<section class="container mx-auto px-24 flex flex-col gap-8 ">
+  <a href="products.html" class="block w-[400px] h-[200px] shrink-0">
+    <div class="w-full h-full bg-white/5 border border-white/10 flex overflow-hidden hover:border-purple-500 transition rounded-xl">
+      <img src="IMG/Samsung.jpeg" class="w-full h-full object-cover" alt="Samsung">
+    </div>
+  </a>
+
+  <a href="products.html" class="block w-[400px] h-[200px] shrink-0">
+    <div class="w-full h-full bg-white/5 border border-white/10 flex overflow-hidden hover:border-purple-500 transition rounded-xl">
+      <img src="IMG/Mi.jpeg" class="w-full h-full object-cover object-[center_10%]" alt="Mi">
+    </div>
+  </a>
+
+  <a href="products.html" class="block w-[400px] h-[200px] shrink-0">
+    <div class="w-full h-full bg-white/5 border border-white/10 flex overflow-hidden hover:border-purple-500 transition rounded-xl">
+      <img src="IMG/Mi.jpeg" class="w-full h-full object-cover object-[center_10%]" alt="Mi">
+    </div>
+  </a>
+
+  <a href="products.html" class="block w-[400px] h-[200px] shrink-0">
+    <div class="w-full h-full bg-white/5 border border-white/10 flex overflow-hidden hover:border-purple-500 transition rounded-xl">
+      <img src="IMG/Oppo A6 Pro.jpeg" class="w-full h-full object-cover" alt="Oppo">
+    </div>
+  </a>
+
+  <a href="products.html" class="block w-[400px] h-[200px] shrink-0">
+    <div class="w-full h-full bg-white/5 border border-white/10 flex overflow-hidden hover:border-purple-500 transition rounded-xl">
+      <img src="IMG/IPad.jpeg" class="w-full h-full object-cover" alt="iPad">
+    </div>
+  </a>
+
+</div>
+
+
+  <section class="mt-6">
 
   <div class="w-full">
     <div class="flex justify-between items-center mb-4">
-      <h2 class="text-3xl font-bold text-white">Recommended</h2>
-      <a href="your-page-link.html" class="text-2xl text-blue-400 hover:text-blue-300 hover:underline flex items-center gap-1 transition">
+      <h2 class="text-2xl font-semibold text-white tracking-tight">Recommended</h2>
+      <a href="products.html" class="text-xl text-blue-400 hover:text-blue-300 hover:underline flex items-center gap-1 transition">
         Show All
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -176,130 +198,172 @@
   </div>
   
   <!-- GRID -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-[500px]">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     
-    <!-- LEFT BIG CARD -->
-    <div class="md:row-span-2 bg-white/10 rounded-2xl overflow-hidden shadow-lg hover:scale-[1.02] transition">
+    <a href="products.html" class="md:row-span-2 block bg-white/10 overflow-hidden shadow-lg hover:scale-[1.02] transition h-[600px] rounded-xl">
       <img 
-        src="/assets/images/Rectangle 43.jpg" alt="..."
-        class="w-full h-full object-cover"
+        src="IMG/Headset.jpeg" alt="Headset"
+        class="w-full h-full object-cover object-top"
         />
-
-    </div>
-
-    <!-- TOP RIGHT -->
-    <div class="bg-white/10 rounded-2xl overflow-hidden shadow-lg hover:scale-[1.02] transition">
-      <img 
-        src="/assets/images/Rectangle 44.jpg" alt="..."
-        class="w-full h-full object-cover"
-      />
-    </div>
-
-    <!-- BOTTOM RIGHT -->
-    <div class="bg-white/10 rounded-2xl overflow-hidden shadow-lg hover:scale-[1.02] transition">
-      <img 
-        src="/assets/images/Rectangle 45.jpg" alt="..."
-        class="w-full h-full object-cover"
-      />
-    </div>
-
-  </div>
-</section>
-
-
-<section class="container mx-auto px-4 md:px-24 py-8 flex flex-col gap-6 bg-[#3A1573]">
-
-  <div class="flex justify-between items-start mb-2">
-    <div class="flex flex-col">
-      <h2 class="text-2xl font-bold text-white">Computer Notebook</h2>
-      <span class="text-sm text-gray-400 mt-1">Hot Promotion</span>
-    </div>
-    <a href="#" class="text-sm text-blue-400 hover:text-blue-300 hover:underline flex items-center gap-1 transition mt-1">
-      Show All
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-      </svg>
     </a>
-  </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    <div class="relative rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-105 bg-[#180836] flex flex-col cursor-pointer group">
-      <div class="absolute -right-10 top-6 w-40 bg-red-600 text-white font-black text-2xl text-center py-1 rotate-45 z-10 shadow-md">
-        -20%
-      </div>
-      <div class="w-full h-96 bg-white relative">
-        <img src="/assets/images/Rectangle 40.png" alt="MSI Monitor" class="w-full h-full object-cover">
-      </div>
-      <div class="p-4 flex flex-col gap-3">
-        <h3 class="text-white font-bold text-sm leading-tight h-10 line-clamp-2 uppercase">
-          MONITOR MSI MAG 321CUPDF - 31.5 INCH RAPID
-        </h3>
-        <div class="flex items-center gap-2">
-          <span class="text-gray-400 line-through text-sm">399$</span>
-          <span class="text-red-500 font-bold text-lg">319.2$</span>
-        </div>
-      </div>
-    </div>
+    <a href="products.html" class="block bg-white/10 overflow-hidden shadow-lg hover:scale-[1.02] transition h-[290px] rounded-xl">
+      <img 
+        src="IMG/Game.jpeg" alt="Game"
+        class="w-full h-full object-cover object-top"
+      />
+    </a>
 
-    <div class="relative rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-105 bg-[#180836] flex flex-col cursor-pointer group">
-      <div class="absolute -right-10 top-6 w-40 bg-red-600 text-white font-black text-2xl text-center py-1 rotate-45 z-10 shadow-md">
-        -10%
-      </div>
-      <div class="w-full h-96 relative bg-[#0d1635]"> <img src="/assets/images/Rectangle 36.png" alt="ASUS Vivobook" class="w-full h-full object-cover">
-      </div>
-      <div class="p-4 flex flex-col gap-3">
-        <h3 class="text-white font-bold text-sm leading-tight h-10 line-clamp-2 uppercase">
-          ASUS Vivobook 16 X1605VA-MB9513WA
-        </h3>
-        <div class="flex items-center gap-2">
-          <span class="text-gray-400 line-through text-sm">850$</span>
-          <span class="text-red-500 font-bold text-lg">765$</span>
-        </div>
-      </div>
-    </div>
+    <a href="products.html" class="block bg-white/10 overflow-hidden shadow-lg hover:scale-[1.02] transition h-[290px] rounded-xl">
+      <img 
+        src="IMG/Mouse.jpeg" alt="Mouse"
+        class="w-full h-full object-cover object-top"
+      />
+    </a>
 
-    <div class="relative rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-105 bg-[#180836] flex flex-col cursor-pointer group">
-      <div class="absolute -right-10 top-6 w-40 bg-red-600 text-white font-black text-2xl text-center py-1 rotate-45 z-10 shadow-md">
-        -10%
-      </div>
-      <div class="w-full h-96 relative bg-[#3f3b5c]">
-        <img src="/assets/images/Rectangle 29.png" alt="AIO ASUS" class="w-full h-full object-cover">
-      </div>
-      <div class="p-4 flex flex-col gap-3">
-        <h3 class="text-white font-bold text-sm leading-tight h-10 line-clamp-2 uppercase">
-          ASUS Vivobook S15 (S5507) Copilot+ PC
-        </h3>
-        <div class="flex items-center gap-2">
-          <span class="text-gray-400 line-through text-sm">799$</span>
-          <span class="text-red-500 font-bold text-lg">719$</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="flex justify-center mt-2">
-    <button class="text-white flex flex-col items-center gap-1 hover:text-gray-300 transition">
-      <span class="text-lg">see more</span>
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-      </svg>
-    </button>
-  </div>
-
+</div>
 </section>
 
-<section>
 
+        <section class="mt-6">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-semibold border-l-4 border-[#bc13fe] pl-3">Computer Notebook</h2>
+                <a href="products.html" class="text-xl text-purple-400 hover:text-blue-300 hover:underline flex items-center gap-1 transition">
+                    Show All
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+            </div>
 
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    
+        <a href="products.html" class="card-bg block overflow-hidden relative rounded-xl hover:shadow-2xl transition duration-300">
+        <span class="absolute top-2 right-2 bg-red-600 text-white text-[10px] font-bold px-2 py-1 z-10">-20%</span>
+        <div class="bg-white">
+            <img src="IMG/Msi.jpeg" class="w-full object-cover">
+        </div>
+        <div class="p-4 space-y-2">
+            <h4 class="text-xs font-bold uppercase truncate">Monitor MSI MAG 321CUPDF</h4>
+            <div class="flex gap-2 items-center">
+                <span class="text-gray-500 text-[10px] line-through">399$</span>
+                <span class="text-red-500 font-bold">319.2$</span>
+            </div>
+        </div>
+        </a>
 
-Contact
+        <a href="products.html" class="card-bg block overflow-hidden relative rounded-xl hover:shadow-2xl transition duration-300">
+        <span class="absolute top-2 right-2 bg-red-600 text-white text-[10px] font-bold px-2 py-1 z-10">-10%</span>
+        <div class="bg-white">
+            <img src="IMG/Asus vivo.jpeg" class="w-full object-cover">
+        </div>
+        <div class="p-4 space-y-2">
+            <h4 class="text-xs font-bold uppercase truncate">ASUS Vivobook 16 X2505VA</h4>
+            <div class="flex gap-2 items-center">
+                <span class="text-gray-500 text-[10px] line-through">850$</span>
+                <span class="text-red-500 font-bold">765$</span>
+            </div>
+        </div>
+        </a>
 
+        <a href="products.html" class="card-bg block overflow-hidden relative rounded-xl hover:shadow-2xl transition duration-300">
+        <span class="absolute top-2 right-2 bg-red-600 text-white text-[10px] font-bold px-2 py-1 z-10">-10%</span>
+        <div class="bg-white">
+            <img src="IMG/Asus.jpeg" class="w-full object-cover">
+        </div>
+            <div class="p-4 space-y-2">
+            <h4 class="text-xs font-bold uppercase truncate">AIO ASUS V600 VM640KA</h4>
+            <div class="flex gap-2 items-center">
+                <span class="text-gray-500 text-[10px] line-through">799$</span>
+                <span class="text-red-500 font-bold">719$</span>
+            </div>
+        </div>
+        </a>
 
+        </div>
+            <div class="text-center mt-6">
+                <button class="text-lg opacity-60 hover:opacity-100 transition hover:text-[#bc13fe]">see more ⌵</button>
+            </div>
+        </section>
 
-</section>
+    </main>
 
-<script src="js/main.js"></script>
+      <footer class="mt-10 bg-[#0a0014] p-10 border-t border-purple-900/50">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 text-[11px] text-gray-400">
+            <div class="space-y-4">
+                <h5 class="text-white font-bold text-sm uppercase tracking-widest">Help</h5>
+                <ul class="space-y-2">
+                    <li class="hover:text-white cursor-pointer">Product warranty conditions</li>
+                    <li class="hover:text-white cursor-pointer">Order history</li>
+                    <li class="hover:text-white cursor-pointer">Favorite products</li>
+                </ul>
+            </div>
+            <div class="space-y-4">
+                <h5 class="text-white font-bold text-sm uppercase tracking-widest">Serve</h5>
+                <ul class="space-y-2">
+                    <li class="hover:text-white cursor-pointer">Simple steps to place an order on BNN.in.th</li>
+                    <li class="hover:text-white cursor-pointer">Pay via ShopeePay.</li>
+                    <li class="hover:text-white cursor-pointer">Shipping</li>
+                    <li class="hover:text-white cursor-pointer">Shop and pick up your order at the store.</li>
+                    <li class="hover:text-white cursor-pointer">Warranty and Claims Policy</li>
+                </ul>
+            </div>
+            <div class="space-y-4">
+                <h5 class="text-white font-bold text-sm uppercase tracking-widest">Contact Information</h5>
+                <p>📘 ຊື່ຮ້ານຂາຍຄອມພິວເຕີ ແລະ ອຸປະກອນIT</p>
+                <p>📞 020 ########</p>
+                <p>📧 ຮ້ານຫຍັງກາບໍ່ຮູ້@gmail.com</p>
+            </div>
+            <div class="space-y-4">
+                <h5 class="text-white font-bold text-sm uppercase tracking-widest">Support payments</h5>
+                <div class="flex gap-2 flex-wrap">
+                    <div class="bg-white/10 w-24 h-6 border-white/5 hover:border-purple-500 transition cursor-pointer">
+                        <img src="IMG/BCELONE.jpg" alt="" class="w-24 h-6">
+                    </div>
+                    <div class="bg-white/10 w-24 h-6 border-white/5 hover:border-purple-500 transition cursor-pointer">
+                        <img src="IMG/MasterCard.jpg" alt="" class="w-24 h-6 object-cover">
+                    </div>
+                    <div class="bg-white/10 w-24 h-6 border-white/5 hover:border-purple-500 transition cursor-pointer">
+                        <img src="IMG/Paypal.jpg" alt="" class="w-24 h-6 object-cover">
+                    </div>
+                    <div class="bg-white/10 w-24 h-6 border-white/5 hover:border-purple-500 transition cursor-pointer">
+                        <img src="IMG/Visa.jpg" alt="" class="w-24 h-6 object-center">
+                    </div>
+                </div>
+
+                <h5 class="text-white font-bold text-sm uppercase tracking-widest">Support relaxtions</h5>
+                <div class="flex gap-2 flex-wrap">
+                    <div class="bg-white/10 w-24 h-6 border-white/5 hover:border-purple-500 transition cursor-pointer">
+                        <img src="IMG/Anousith.jpg" alt="" class="w-24 h-6 object-cover">
+                    </div>
+                    <div class="bg-white/10 w-24 h-6 border-white/5 hover:border-purple-500 transition cursor-pointer">
+                        <img src="IMG/Mixay.png" alt="" class="w-24 h-6 object-cover">
+                    </div>
+                    <div class="bg-white/10 w-24 h-6 border-white/5 hover:border-purple-500 transition cursor-pointer">
+                        <img src="IMG/HAL.jpg" alt="" class="w-24 h-6 object-center">
+                    </div>
+                </div> 
+
+            </div>
+        </div>
+        <div class="text-center text-[10px] mt-16 opacity-30 tracking-widest">COPYRIGHT © 2026 ALL RIGHTS RESERVED</div>
+    </footer>
 </body>
 </html>
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
