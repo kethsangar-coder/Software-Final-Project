@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="lo">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Checkout Page</title>
+    <style>
+        body {
+            background: radial-gradient(circle at center, #4b2a8e 0%, #1a0b33 100%);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <div class="relative w-full max-w-5xl">
+        
+        <div class="absolute -left-12 top-10 md:block hidden">
+            <button class="text-white hover:text-purple-300 transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-10 h-10">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="bg-[#3e1f75]/80 backdrop-blur-md p-8 md:p-12 rounded-2xl shadow-2xl border border-white/10 text-white">
+            <form action="#" method="POST">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    
+                    <div>
+                        <h2 class="text-2xl font-bold mb-8 tracking-wide">BILLING ADDRESS</h2>
+                        
+                        <div class="space-y-5">
+                            <div>
+                                <label class="block text-sm font-medium mb-1.5">Full Name :</label>
+                                <input type="text" placeholder="Thee Theerakit K.Lee" class="w-full bg-[#2a1452] border border-white/20 rounded-md px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all placeholder:text-gray-400">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium mb-1.5">Email :</label>
+                                <input type="email" placeholder="Thee Theerakit K.Lee" class="w-full bg-[#2a1452] border border-white/20 rounded-md px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all placeholder:text-gray-400">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium mb-1.5">Address :</label>
+                                <input type="text" placeholder="Room - Street - Location" class="w-full bg-[#2a1452] border border-white/20 rounded-md px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all placeholder:text-gray-400">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium mb-1.5">City :</label>
+                                <input type="text" placeholder="Xaysettha" class="w-full bg-[#2a1452] border border-white/20 rounded-md px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all placeholder:text-gray-400">
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-1.5">Country :</label>
+                                    <input type="text" placeholder="LaoPDR" class="w-full bg-[#2a1452] border border-white/20 rounded-md px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all placeholder:text-gray-400">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-1.5">Zip Code :</label>
+                                    <input type="text" placeholder="123 456" class="w-full bg-[#2a1452] border border-white/20 rounded-md px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all placeholder:text-gray-400">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h2 class="text-2xl font-bold mb-8 tracking-wide">PAYMENT</h2>
+                        
+                        <div class="space-y-5">
+                            <div>
+                                <label class="block text-sm font-medium mb-3">Cards Accepted :</label>
+                                <div class="flex gap-3">
+                                    <div class="bg-white px-2 py-1 rounded shadow-sm"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Visa_2021.svg" class="h-5"></div>
+                                    <div class="bg-white px-2 py-1 rounded shadow-sm"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="h-5"></div>
+                                    <div class="bg-white px-2 py-1 rounded shadow-sm"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" class="h-5"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium mb-1.5">Name On Card :</label>
+                                <input type="text" placeholder="Mr. K Lee" class="w-full bg-[#2a1452] border border-white/20 rounded-md px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all placeholder:text-gray-400">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium mb-1.5">Credit Card Number :</label>
+                                <input type="text" placeholder="1111 2222 3333 4444" class="w-full bg-[#2a1452] border border-white/20 rounded-md px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all placeholder:text-gray-400">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium mb-1.5">Exp. Month :</label>
+                                <input type="text" placeholder="April" class="w-full bg-[#2a1452] border border-white/20 rounded-md px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all placeholder:text-gray-400">
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-1.5">Exp. Year :</label>
+                                    <input type="text" placeholder="2026" class="w-full bg-[#2a1452] border border-white/20 rounded-md px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all placeholder:text-gray-400">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-1.5">CVV :</label>
+                                    <input type="password" placeholder="123" class="w-full bg-[#2a1452] border border-white/20 rounded-md px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all placeholder:text-gray-400">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="index.html"><button type="submit" class="w-full mt-12 bg-gradient-to-r from-[#8025ff] to-[#be3eff] hover:from-[#9045ff] hover:to-[#c55aff] text-white font-bold py-3.5 rounded-xl text-lg shadow-[0_0_20px_rgba(128,37,255,0.4)] transition-all duration-300 active:scale-[0.98]">
+                    Submit
+                </button></a>
+
+                
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
