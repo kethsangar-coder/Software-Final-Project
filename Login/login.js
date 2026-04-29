@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
             message.textContent = "ເຂົ້າສູ່ລະບົບສຳເລັດ!";
 
             setTimeout(() => {
-            window.location.href = "index.html"; 
+            window.location.href = "../index.html"; 
               }, 1500);
         } else {
             message.style.color = "red";
