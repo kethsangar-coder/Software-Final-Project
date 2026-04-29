@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // ເອີ້ນໃຊ້ Function ສຸ່ມສິນຄ້າ ຫຼັງຈາກທີ່ເຮົາຮູ້ແລ້ວວ່າ currentProduct ແມ່ນໂຕໃດ
+        // ເອີ້ນໃຊ້ Function ສຸ່ມສິນຄ້າ
         displayRandomProducts();
     }
 });
@@ -61,7 +61,6 @@ function displayRandomProducts() {
     const randomGrid = document.getElementById('randomProductsGrid');
     if (!randomGrid || !currentProduct) return;
 
-    // ກອງເອົາໂຕອື່ນທີ່ບໍ່ແມ່ນໂຕປັດຈຸບັນ
     let otherProducts = products.filter(p => p.id !== currentProduct.id);
     otherProducts.sort(() => 0.5 - Math.random());
     const randomSelection = otherProducts.slice(0, 4);
@@ -77,31 +76,66 @@ function displayRandomProducts() {
     `).join('');
 }
 
+// --- ສ່ວນທີ່ແກ້ໄຂໃໝ່ ---
+
+function changeQty(amount) {
+    const input = document.getElementById('qtyInput');
+    let value = parseInt(input.value) || 1;
+
+    value += amount;
+
+    // ບໍ່ໃຫ້ນ້ອຍກວ່າ 1
+    if (value < 1) value = 1;
+
+    input.value = value;
+}
+
 function addToCart() {
-    // ກວດເບິ່ງກ່ອນວ່າຂໍ້ມູນສິນຄ້າໂຫຼດມາແລ້ວບໍ່
     if (!currentProduct) {
-        alert("ກະລຸນາລໍຖ້າຂໍ້ມູນໂຫຼດສັກຄູ່...");
+        Swal.fire({
+            icon: 'error',
+            title: 'ຂໍອະໄພ!',
+            text: 'ກະລຸນາລໍຖ້າຂໍ້ມູນໂຫຼດສັກຄູ່...',
+            background: '#1a0033',
+            color: '#fff',
+            confirmButtonColor: '#bc13fe'
+        });
         return;
     }
 
+    const selectedQty = parseInt(document.getElementById('qtyInput').value) || 1;
     let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
     const index = cart.findIndex(item => item.id === currentProduct.id);
 
     if (index > -1) {
-        cart[index].quantity += 1;
+        cart[index].quantity += selectedQty;
     } else {
         cart.push({
             id: currentProduct.id,
             name: currentProduct.name,
             price: currentProduct.price,
             img: currentProduct.img,
-            quantity: 1
+            quantity: selectedQty
         });
     }
 
     localStorage.setItem('shoppingCart', JSON.stringify(cart));
 
-    if(confirm("ເພີ່ມສິນຄ້າລົງໃນກະຕ່າແລ້ວ! ຕ້ອງການໄປໜ້າ Cart ເລີຍບໍ່?")) {
-        window.location.href = "cart.html";
-    }
+    // --- ປ່ຽນ confirm() ເປັນ SweetAlert2 ບ່ອນນີ້ ---
+    Swal.fire({
+        title: 'ເພີ່ມສິນຄ້າສຳເລັດ!',
+        text: `ເພີ່ມສິນຄ້າ ${selectedQty} ລາຍການລົງໃນກະຕ່າແລ້ວ`,
+        icon: 'success',
+        showCancelButton: true,
+        confirmButtonColor: '#bc13fe',    // ສີມ່ວງ Neon
+        cancelButtonColor: '#471396',     // ສີມ່ວງເຂັ້ມ
+        confirmButtonText: '🛒 ໄປໜ້າກະຕ່າ',
+        cancelButtonText: 'ຊື້ສິນຄ້າຕໍ່',
+        background: '#1a0033',            // ພື້ນຫຼັງສີມ່ວງດຳ
+        color: '#ffffff'                  // ຕົວໜັງສືສີຂາວ
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = "cart.html";
+        }
+    });
 }
