@@ -54,18 +54,17 @@
                     <a href="cart.html" class="flex items-center gap-2 border border-gray-500/50 px-4 py-2 rounded-full cursor-pointer hover:border-gray-400 hover:text-gray-300 transition-all duration-300 text-xs font-bold">
                         <span>🛒 Cart</span>
                     </a>
-                    <a href="profile.html">
-                      <button class="bg-[#bc13fe] flex items-center gap-3 pl-1 pr-3 py-1 rounded-full hover:shadow-[0_0_15px_#bc13fe] transition duration-300 transform active:scale-95 text-white">
-                        <img src="IMG/Thae la berd.jpg" alt="Profile" class="w-6 h-6 rounded-full object-cover border border-white/20">
-                        <div class="flex items-center gap-2">
-                            <span class="text-sm font-medium">Thee</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
-                            </svg>
-                        </div>
-                    </button>
+                </div>
+
+                <div id="authArea">
+                    <a href="Loging.html">
+                        <button class="bg-[#bc13fe] px-6 py-2 rounded-full text-xs font-bold hover:shadow-[0_0_15px_#bc13fe] transition duration-300 transform active:scale-95">
+                            Sign In
+                        </button>
                     </a>
                 </div>
+                     
+               
 
                 <div class="flex gap-1 items-center text-sm cursor-pointer border-l border-white/10 pl-4">
                     <span>US</span>
@@ -363,6 +362,36 @@
         </div>
         <div class="text-center text-[10px] mt-16 opacity-30 tracking-widest">COPYRIGHT © 2026 ALL RIGHTS RESERVED</div>
     </footer>
+
+
+
+
+    <script>
+    function checkLogin() {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    const authArea = document.getElementById("authArea");
+
+    if (user) {
+        authArea.innerHTML = `
+        <a href="profile.html">
+            <button class="bg-[#bc13fe] flex items-center gap-3 pl-1 pr-3 py-1 rounded-full hover:shadow-[0_0_15px_#bc13fe] transition duration-300 transform active:scale-95 text-white">
+                <img src="${user.img}" class="w-6 h-6 rounded-full object-cover border border-white/20">
+                <div class="flex items-center gap-2">
+                    <span class="text-sm font-medium">${user.name}</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                        <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                    </svg>
+                </div>
+            </button>
+        </a>
+        `;
+    }
+}
+
+// ເອີ້ນຕອນໂຫຼດໜ້າ
+checkLogin();
+</script>
 </body>
 </html>
 

@@ -2,46 +2,86 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('loginForm');
     const message = document.getElementById('message');
 
-    // 1. ຈັດການການ Login ເມື່ອກົດ Submit
+    // =========================
+    // 1. LOGIN SYSTEM
+    // =========================
     loginForm.addEventListener('submit', (e) => {
-        e.preventDefault(); // ຢຸດການ reload ໜ້າເວັບ
+        e.preventDefault();
 
         const phone = document.getElementById('PhoneN').value;
         const password = document.getElementById('pass').value;
 
-        // ຕົວຢ່າງການກວດສອບເງື່ອນໄຂເບື້ອງຕົ້ນ
+        // ຕົວຢ່າງ login (mock)
         if (phone === "02012345678" && password === "123456") {
+
+            const userData = {
+                name: "Thee",
+                img: "IMG/Thae la berd.jpg"
+            };
+
+            // ບັນທຶກ user ລົງ localStorage
+            localStorage.setItem("user", JSON.stringify(userData));
+
             message.style.color = "green";
-            message.textContent = "ເຂົ້າສູ່ລະບົບສຳເລັດ!";
+            message.textContent = "Login success!";
 
             setTimeout(() => {
-            window.location.href = "../index.html"; 
-              }, 1500);
+                window.location.href = "../index.html";
+            }, 1200);
+
         } else {
             message.style.color = "red";
-            message.textContent = "ເບີໂທ ຫຼື ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ!";
+            message.textContent = "Phone or password incorrect!";
         }
     });
 
-    // 2. ຈັດການປຸ່ມ Google
+    // =========================
+    // 2. GOOGLE LOGIN (mock)
+    // =========================
     document.getElementById('google').addEventListener('click', () => {
-        alert('ກຳລັງເຊື່ອມຕໍ່ກັບ Google...');
+        const userData = {
+            name: "Google User",
+            img: "IMG/google-user.png"
+        };
+
+        localStorage.setItem("user", JSON.stringify(userData));
+
+        alert('Login with Google...');
+        setTimeout(() => {
+            window.location.href = "../index.html";
+        }, 800);
     });
 
-    // 3. ຈັດການປຸ່ມ Facebook
+    // =========================
+    // 3. FACEBOOK LOGIN (mock)
+    // =========================
     document.getElementById('facebook').addEventListener('click', () => {
-        alert('ກຳລັງເຊື່ອມຕໍ່ກັບ Facebook...');
+        const userData = {
+            name: "Facebook User",
+            img: "IMG/facebook-user.png"
+        };
+
+        localStorage.setItem("user", JSON.stringify(userData));
+
+        alert('Login with Facebook...');
+        setTimeout(() => {
+            window.location.href = "../index.html";
+        }, 800);
     });
 
-    // 4. ຈັດການລິ້ງ Forget Password
+    // =========================
+    // 4. FORGET PASSWORD
+    // =========================
     document.getElementById('FG').addEventListener('click', (e) => {
         e.preventDefault();
-        alert('ລະບົບກຳລັງສົ່ງລິ້ງກູ້ຄືນລະຫັດຜ່ານໄປຫາເບີໂທຂອງທ່ານ.');
+        alert('Reset link sent to your phone number.');
     });
 
-    // 5. ຈັດການປຸ່ມ Register
+    // =========================
+    // 5. REGISTER
+    // =========================
     document.getElementById('Regis').addEventListener('click', (e) => {
         e.preventDefault();
-        alert('ໄປທີ່ໜ້າລົງທະບຽນ...');
+        alert('Go to register page...');
     });
 });
