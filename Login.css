@@ -117,3 +117,18 @@ h4 {
     background: rgb(45, 85, 220);
     transform: scale(1.02);
 }
+
+.back-btn {
+    display: inline-block;
+    margin-top: 12px;
+    color: #000;
+    text-decoration: none;
+    font-size: 14px;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    opacity: 1;
+    text-decoration: underline;
+}

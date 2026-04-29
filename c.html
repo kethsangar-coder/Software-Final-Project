@@ -9,6 +9,78 @@
         body {
             background: radial-gradient(circle at center, #4b2a8e 0%, #1a0b33 100%);
         }
+
+       .modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.modal.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-box {
+    background: #140021;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    width: 300px;
+    transform: scale(0.8);
+    transition: 0.3s;
+    box-shadow: 0 0 30px rgba(128, 37, 255, 0.4);
+}
+
+.modal.active .modal-box {
+    transform: scale(1);
+}
+
+/* Loading */
+.spinner {
+    border: 5px solid #333;
+    border-top: 5px solid #7b2ff7;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 15px auto;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* SUCCESS STYLE (สำคัญ) */
+.success {
+    display: none;
+    text-align: center;
+    color: #00ff99;
+    font-size: 18px;
+    font-weight: bold;
+    animation: pop 0.4s ease;
+}
+
+.success span {
+    font-size: 60px;
+    display: block;
+    margin-bottom: 10px;
+    color: #00ff99;
+    text-shadow: 0 0 15px #00ff99;
+}
+
+@keyframes pop {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+        
     </style>
 </head>
 <body class="min-h-screen flex items-center justify-center p-4">
@@ -24,7 +96,7 @@
         </div>
 
         <div class="bg-[#3e1f75]/80 backdrop-blur-md p-8 md:p-12 rounded-2xl shadow-2xl border border-white/10 text-white">
-            <form action="index.html" method="GET">
+            <form id="checkoutForm" action="index.html" method="GET">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
                     
                     <div>
@@ -113,6 +185,52 @@
             </form>
         </div>
     </div>
+
+
+    <div class="modal" id="modal">
+    <div class="modal-box">
+        <div id="loading">
+            <div class="spinner"></div>
+            <p>Processing payment...</p>
+        </div>
+
+        <div id="success" class="success">
+            ✔
+            <p style="font-size:18px;">Payment Successful</p>
+        </div>
+    </div>
+</div>
+
+    <!-- ເນື້ອຫາ checkout ທັງໝົດຢູ່ທາງເທິງ -->
+
+    <script>
+    const form = document.getElementById("checkoutForm");
+    const modal = document.getElementById("modal");
+    const loading = document.getElementById("loading");
+    const success = document.getElementById("success");
+
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        modal.classList.add("active");
+
+        loading.style.display = "block";
+        success.style.display = "none";
+
+        setTimeout(() => {
+            loading.style.display = "none";
+            success.style.display = "block";
+
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 2000);
+
+        }, 2500);
+    });
+    </script>
+
+</body>
+</html>
 
 </body>
 </html>
